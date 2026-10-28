@@ -1,0 +1,6 @@
+Building source distribution...
+warning: `build_system.requires = ["uv-build>=0.8.8,<0.12.0"]` does not contain the current uv version 0.13.6
+warning: Found license classifier `License :: OSI Approved :: MIT License`. License classifiers are ambiguous and deprecated per PEP 639; projects should use `project.license` and `project.license-files` instead.
+Building wheel from source distribution...
+Successfully built dist/async_geotiff-0.5.1.tar.gz
+Successfully built dist/async_geotiff-0.5.1-py3-none-any.whl

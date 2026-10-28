@@ -1,0 +1,54 @@
+diff --git a/docs/api/raster-array.md b/docs/api/raster-array.md
+index 44dfe6c..f27fc09 100644
+--- a/docs/api/raster-array.md
++++ b/docs/api/raster-array.md
+@@ -1,9 +1,5 @@
+ # RasterArray
+ 
+-The text representation summarizes the array's shape, data type, and whether it has
+-an explicit mask. Pixel values, mask values, and the parent GeoTIFF are omitted.
+-The shape is ordered as `(bands, height, width)`.
+-
+ ::: async_geotiff.RasterArray
+     options:
+       show_bases: false
+diff --git a/src/async_geotiff/_array.py b/src/async_geotiff/_array.py
+index 2ea7d21..cf30c89 100644
+--- a/src/async_geotiff/_array.py
++++ b/src/async_geotiff/_array.py
+@@ -55,7 +55,8 @@ class RasterArray(TransformMixin):
+     def __repr__(self) -> str:
+         """Summarize metadata without formatting pixel or mask values."""
+         return (
+-            f"async_geotiff.RasterArray(shape={self.shape}, dtype={self.data.dtype}, "
++            f"async_geotiff.RasterArray(shape={self.shape}, "
++            f"dtype={str(self.data.dtype)!r}, "
+             f"has_mask={self.mask is not None})"
+         )
+ 
+diff --git a/tests/test_array.py b/tests/test_array.py
+index 350f6d8..65d1272 100644
+--- a/tests/test_array.py
++++ b/tests/test_array.py
+@@ -19,15 +19,18 @@ if TYPE_CHECKING:
+     [
+         (
+             "uint8_rgb_deflate_block64_cog",
+-            "async_geotiff.RasterArray(shape=(3, 3, 4), dtype=uint8, has_mask=False)",
++            "async_geotiff.RasterArray(shape=(3, 3, 4), dtype='uint8', has_mask=False)",
+         ),
+         (
+             "cog_uint8_rgb_mask",
+-            "async_geotiff.RasterArray(shape=(3, 3, 4), dtype=uint8, has_mask=True)",
++            "async_geotiff.RasterArray(shape=(3, 3, 4), dtype='uint8', has_mask=True)",
+         ),
+         (
+             "float32_1band_lerc_block32",
+-            "async_geotiff.RasterArray(shape=(1, 3, 4), dtype=float32, has_mask=False)",
++            (
++                "async_geotiff.RasterArray(shape=(1, 3, 4), dtype='float32', "
++                "has_mask=False)"
++            ),
+         ),
+     ],
+ )

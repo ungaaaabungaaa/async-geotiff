@@ -1,0 +1,9 @@
+Collecting ruff
+  Downloading ruff-0.17.3-py3-none-macosx_11_0_arm64.whl.metadata (20 kB)
+Downloading ruff-0.17.3-py3-none-macosx_11_0_arm64.whl (9.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.4/9.4 MB 2.1 MB/s  0:00:04
+Installing collected packages: ruff
+Successfully installed ruff-0.17.3
+
+[notice] A new release of pip is available: 26.2.1 -> 26.2.2
+[notice] To update, run: /Users/syedabdulmuqeeth/Developer/portfolio/.sources/oss-async-geotiff-review-tools/bin/python3.14 -m pip install --upgrade pip
